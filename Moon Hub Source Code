@@ -1,4 +1,3 @@
---moon hub
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/REDzHUB/LibraryV2/main/redzLib")))()
 
 MakeWindow({
@@ -9,9 +8,9 @@ MakeWindow({
   Key = {
     KeySystem = true,
     Title = "Key System",
-    Description = "",
+    Description = "Get Moon Hub Key",
     KeyLink = "",
-    Keys = {"Moonhubtop"},
+    Keys = {"MoonHubOnTOP"},
     Notifi = {
       Notifications = true,
       CorrectKey = "Running the Script...",
