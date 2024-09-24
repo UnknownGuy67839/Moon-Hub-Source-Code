@@ -9,7 +9,7 @@ MakeWindow({
     KeySystem = true,
     Title = "Key System",
     Description = "Get Moon Hub Key",
-    KeyLink = "",
+    KeyLink = "https://discord.gg/2WSJTaY6",
     Keys = {"MoonHubOnTOP"},
     Notifi = {
       Notifications = true,
