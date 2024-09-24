@@ -26,9 +26,9 @@ local section = AddSection(Main, {"Silders"})
 
 local Slider = AddSlider(Main, {
   Name = "Walkspeed",
-  MinValue = 50,
+  MinValue = 16,
   MaxValue = 1000,
-  Default = 50,
+  Default = 16,
   Increase = 1,
   Callback = function(Value)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
@@ -37,9 +37,9 @@ local Slider = AddSlider(Main, {
 
 local Slider = AddSlider(Main, {
   Name = "Jump Power",
-  MinValue = 16,
+  MinValue = 50,
   MaxValue = 1000,
-  Default = 16,
+  Default = 50,
   Increase = 1,
   Callback = function(Value)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
