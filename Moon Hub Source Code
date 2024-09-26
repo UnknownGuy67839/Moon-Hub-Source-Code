@@ -9,8 +9,8 @@ MakeWindow({
     KeySystem = true,
     Title = "Key System",
     Description = "",
-    KeyLink = "https://discord.gg/2WSJTaY6",
-    Keys = {"MoonHubOnTOP"},
+    KeyLink = "",
+    Keys = {"Moonhubtop"},
     Notifi = {
       Notifications = true,
       CorrectKey = "Running the Script...",
@@ -22,26 +22,80 @@ MakeWindow({
 
 local Main = MakeTab({Name = "Main"})
 
-local section = AddSection(Main, {"Silders"})
+local section = AddSection(Main, {"Teste"})
 
 local Slider = AddSlider(Main, {
   Name = "Walkspeed",
-  MinValue = 16,
-  MaxValue = 1000,
+  MinValue = 10,
+  MaxValue = 100,
   Default = 16,
   Increase = 1,
   Callback = function(Value)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
   end
 })
 
 local Slider = AddSlider(Main, {
-  Name = "Jump Power",
-  MinValue = 50,
-  MaxValue = 1000,
+  Name = "jump power",
+  MinValue = 10,
+  MaxValue = 100,
   Default = 50,
   Increase = 1,
   Callback = function(Value)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
   end
 })
+MinimizeButton({
+  Image = "",
+  Size = {40, 40},
+  Color = Color3.fromRGB(10, 10, 10),
+  Corner = true,
+  Stroke = false,
+  StrokeColor = Color3.fromRGB(255, 0, 0)
+})
+
+--[[
+  Image = "" <string> imagem do botão
+  Size = {40, 40} <table> tamanho do botão
+  Color = Color3.fromRGB(10, 10, 10) <Color3>  Cor do fundo do botäo
+  Corner = true -- <boolean> Adicina um UICorner
+  Stroke = false <boolean> Adiciona um UIStroke
+  StrokeColor = Color3.fromRGB(255, 0, 0) <Color3> Cor do UIStroke
+]]
+local section = AddSection(Main, {"Noclip"})
+--[[
+  {"Noclip"} <table> nome da janela
+]]
+local Toggle = AddToggle(Main, {
+  Name = "Toggle Noclip",
+  Default = false,
+  Callback = function(Value)
+    
+  end
+})
+
+--[[
+  Name = "Toggle Noclip" <string> nome da sua caixa de seleção
+  Default = false <boolean> valor padrão
+  Callback = function(Value)
+    -- função da sua caixa de seleção
+  end
+]]
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local Humanoid = Character:FindFirstChild("Humanoid")
+
+local function Noclip()
+  Humanoid.PlatformStand = true
+  Humanoid.WalkSpeed = 0
+  Character:FindFirstChild("HumanoidRootPart").CanCollide = false
+end
+
+local function Clip()
+  Humanoid.PlatformStand = false
+  Humanoid.WalkSpeed = 16
+  Character:FindFirstChild("HumanoidRootPart").CanCollide = true
+end
+
+-- Call Noclip immediately
+Noclip()
