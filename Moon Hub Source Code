@@ -1,3 +1,4 @@
+--moon hub
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/REDzHUB/LibraryV2/main/redzLib")))()
 
 MakeWindow({
@@ -81,21 +82,3 @@ local Toggle = AddToggle(Main, {
     -- função da sua caixa de seleção
   end
 ]]
-local Player = game.Players.LocalPlayer
-local Character = Player.Character
-local Humanoid = Character:FindFirstChild("Humanoid")
-
-local function Noclip()
-  Humanoid.PlatformStand = true
-  Humanoid.WalkSpeed = 0
-  Character:FindFirstChild("HumanoidRootPart").CanCollide = false
-end
-
-local function Clip()
-  Humanoid.PlatformStand = false
-  Humanoid.WalkSpeed = 16
-  Character:FindFirstChild("HumanoidRootPart").CanCollide = true
-end
-
--- Call Noclip immediately
-Noclip()
