@@ -2,14 +2,14 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/REDzHUB/LibraryV2/ma
 
 MakeWindow({
   Hub = {
-    Title = "Moon HUB",
+    Title = "Moon Hub",
     Animation = "by : Fearvamp"
   },
   Key = {
     KeySystem = true,
     Title = "Key System",
     Description = "",
-    KeyLink = "",
+    KeyLink = "https://discord.gg/pZtQzAqf",
     Keys = {"MoonHubOnTOP"},
     Notifi = {
       Notifications = true,
@@ -22,7 +22,7 @@ MakeWindow({
 
 local Main = MakeTab({Name = "Main"})
 
-local section = AddSection(Main, {"Teste"})
+local section = AddSection(Main, {"Silders"})
 
 local Slider = AddSlider(Main, {
   Name = "Walkspeed",
