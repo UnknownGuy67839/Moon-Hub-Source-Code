@@ -74,19 +74,19 @@ local Toggle = AddToggle(Main, {
     -- função da sua caixa de seleção
   end
 ]]
--- Noclip Script for Roblox Studio (with external toggle control)
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local runService = game:GetService("RunService")
 
--- Assume the existence of an external BoolValue called "noclipEnabled"
-local noclipEnabled = player:WaitForChild("NoclipEnabled") -- Wait for the external toggle
+-- Variables
+local rootPart = character:WaitForChild("HumanoidRootPart") -- Main part for collisions
+local noclipEnabled = player:WaitForChild("NoclipEnabled") -- External toggle for noclip
 
 -- Function to disable or enable collisions based on noclip state
 local function updateNoclipState()
     if noclipEnabled.Value then
         -- Disable collisions (noclip on)
-        character.HumanoidRootPart.CanCollide = false
+        rootPart.CanCollide = false
         for _, part in pairs(character:GetChildren()) do
             if part:IsA("BasePart") then
                 part.CanCollide = false
@@ -94,7 +94,7 @@ local function updateNoclipState()
         end
     else
         -- Enable collisions (noclip off)
-        character.HumanoidRootPart.CanCollide = true
+        rootPart.CanCollide = true
         for _, part in pairs(character:GetChildren()) do
             if part:IsA("BasePart") then
                 part.CanCollide = true
@@ -107,3 +107,5 @@ end
 runService.Stepped:Connect(function()
     updateNoclipState()
 end)
+player.NoclipEnabled.Value = true -- Toggle Noclip
+player.NoclipEnabled.Value = false -- Toggle Noclip
