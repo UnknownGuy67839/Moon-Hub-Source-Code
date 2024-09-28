@@ -55,3 +55,55 @@ UpdateSlider(Slider, 50)
 --[[
   <number> novo valor do controle deslizante
 ]]
+local section = AddSection(Main, {"Noclip"})
+--[[
+  {"Noclip"} <table> nome da janela
+]]
+local Toggle = AddToggle(Main, {
+  Name = "Toggle Noclip",
+  Default = false,
+  Callback = function(Value)
+    
+  end
+})
+
+--[[
+  Name = "Toggle Noclip" <string> nome da sua caixa de seleção
+  Default = false <boolean> valor padrão
+  Callback = function(Value)
+    -- função da sua caixa de seleção
+  end
+]]
+-- Noclip Script for Roblox Studio (with external toggle control)
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local runService = game:GetService("RunService")
+
+-- Assume the existence of an external BoolValue called "noclipEnabled"
+local noclipEnabled = player:WaitForChild("NoclipEnabled") -- Wait for the external toggle
+
+-- Function to disable or enable collisions based on noclip state
+local function updateNoclipState()
+    if noclipEnabled.Value then
+        -- Disable collisions (noclip on)
+        character.HumanoidRootPart.CanCollide = false
+        for _, part in pairs(character:GetChildren()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = false
+            end
+        end
+    else
+        -- Enable collisions (noclip off)
+        character.HumanoidRootPart.CanCollide = true
+        for _, part in pairs(character:GetChildren()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = true
+            end
+        end
+    end
+end
+
+-- Continuously update collision state based on noclip toggle
+runService.Stepped:Connect(function()
+    updateNoclipState()
+end)
