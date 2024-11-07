@@ -72,8 +72,7 @@ local Toggle = AddToggle(Main, {
   Default = false <boolean> valor padrão
   Callback = function(Value)
     -- função da sua caixa de seleção
-  end
-]]
+  end]]
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local runService = game:GetService("RunService")
