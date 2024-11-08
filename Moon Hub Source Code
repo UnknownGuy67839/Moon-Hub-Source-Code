@@ -74,23 +74,3 @@ local Toggle = AddToggle(Main, {
     -- função da sua caixa de seleção
   end
 ]]
-        --Toggles the noclip between on or off on every script run
-_G.noclip = not _G.noclip
-if _G.noclipStarted == nil then
-  --Ensures this only runs once to save resources
-  _G.noclipStarted = true 
-  --The actual noclip
-wait(5)
-
-local runservice = game:GetService("RunService") -- this is the service for the fps idk it handles all processing
-
-local player = game:GetService("Players").LocalPlayer
-runservice.Stepped:Connect(function()
-    for i,v in pairs(player.Character:GetDescendants()) do
-        if v:IsA("BasePart") then
-            v.CanCollide = false -- this disables the collision in your character(ALL COLLISIONS are disabled except for standing)
-        end
-    end
-end)
-
--- Noclip script is done...
